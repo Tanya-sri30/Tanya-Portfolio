@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Container from './Container.jsx'
 import { navbarLinks } from '../data/navbarLinks.js'
@@ -6,15 +6,49 @@ import { cn } from '../utils/cn.js'
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    let frameId = 0
+
+    const updateScrollState = () => {
+      cancelAnimationFrame(frameId)
+
+      frameId = requestAnimationFrame(() => {
+        setIsScrolled(window.scrollY > 24)
+      })
+    }
+
+    updateScrollState()
+    window.addEventListener('scroll', updateScrollState, { passive: true })
+
+    return () => {
+      cancelAnimationFrame(frameId)
+      window.removeEventListener('scroll', updateScrollState)
+    }
+  }, [])
 
   const closeMenu = () => {
     setIsOpen(false)
   }
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-[color:var(--color-cyan-border)] bg-[color:var(--color-navbar-surface)] shadow-[var(--shadow-navbar)] backdrop-blur-2xl">
+    <header
+      className={cn(
+        'fixed inset-x-0 top-0 z-50 border-b backdrop-blur-2xl transition-all duration-500 ease-out',
+        isScrolled || isOpen
+          ? 'border-[color:var(--color-cyan-border)] bg-[color:var(--color-navbar-surface)] shadow-[var(--shadow-navbar)]'
+          : 'border-transparent bg-transparent shadow-none',
+      )}
+    >
       <Container>
-        <nav className="flex min-h-20 items-center justify-between gap-6" aria-label="Primary navigation">
+        <nav
+          className={cn(
+            'flex items-center justify-between gap-6 transition-[min-height] duration-500 ease-out',
+            isScrolled ? 'min-h-16' : 'min-h-20',
+          )}
+          aria-label="Primary navigation"
+        >
           <Link to="/" className="group flex items-center gap-3" onClick={closeMenu}>
             <span className="relative flex h-3 w-3">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-200 opacity-25" />
@@ -22,10 +56,20 @@ function Navbar() {
             </span>
 
             <span className="flex flex-col">
-              <span className="text-sm font-semibold tracking-[0.22em] text-white transition duration-300 group-hover:text-cyan-50 group-hover:[text-shadow:0_0_18px_rgba(34,211,238,0.18)] sm:text-base">
+              <span
+                className={cn(
+                  'text-sm font-semibold tracking-[0.22em] text-white transition-all duration-500 group-hover:text-cyan-50 group-hover:[text-shadow:0_0_18px_rgba(34,211,238,0.18)] sm:text-base',
+                  isScrolled && 'sm:text-[0.92rem]',
+                )}
+              >
                 Tanya Srivastava
               </span>
-              <span className="mt-1 text-[0.62rem] font-medium uppercase tracking-[0.24em] text-cyan-100/55">
+              <span
+                className={cn(
+                  'mt-1 text-[0.62rem] font-medium uppercase tracking-[0.24em] text-cyan-100/55 transition-all duration-500',
+                  isScrolled && 'opacity-75',
+                )}
+              >
                 Online // Neural Link Stable
               </span>
             </span>

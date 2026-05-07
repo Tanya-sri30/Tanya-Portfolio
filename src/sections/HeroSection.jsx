@@ -1,16 +1,39 @@
 import Section from '../components/Section.jsx'
 import Divider from '../components/ui/Divider.jsx'
+import FloatingPanel from '../components/ui/FloatingPanel.jsx'
+import GlassCard from '../components/ui/GlassCard.jsx'
+import InteractiveWrapper from '../components/ui/InteractiveWrapper.jsx'
 import PrimaryButton from '../components/ui/PrimaryButton.jsx'
-import SectionLabel from '../components/ui/SectionLabel.jsx'
-import SectionTitle from '../components/ui/SectionTitle.jsx'
+import SecondaryButton from '../components/ui/SecondaryButton.jsx'
+import SectionIntro from '../components/ui/SectionIntro.jsx'
+import StatCard from '../components/ui/StatCard.jsx'
 import { siteContent } from '../data/siteContent.js'
+
+const systemStats = [
+  {
+    label: 'Signal',
+    value: '99.7%',
+    detail: 'Interface stability',
+  },
+  {
+    label: 'Modules',
+    value: '07',
+    detail: 'Portfolio nodes',
+  },
+  {
+    label: 'Latency',
+    value: '12ms',
+    detail: 'Interaction response',
+  },
+]
 
 function HeroSection() {
   return (
     <Section
       id="home"
-      className="relative flex min-h-screen items-center overflow-hidden"
-      containerClassName="relative z-10 flex flex-col items-center text-center"
+      fullScreen
+      className="relative overflow-hidden"
+      containerClassName="relative z-10 flex max-w-[1180px] flex-col items-center text-center"
     >
       <div className="hero-atmosphere" aria-hidden="true">
         <span className="hero-grid" />
@@ -19,32 +42,63 @@ function HeroSection() {
         <span className="hero-scanline" />
       </div>
 
-      <div className="animate-fade-up flex flex-col items-center">
-        <SectionLabel>{siteContent.status}</SectionLabel>
+      <SectionIntro
+        eyebrow={siteContent.status}
+        title={siteContent.systemName}
+        description="Intelligent portfolio environment calibrated for cinematic interfaces, neural design systems, and precise frontend engineering."
+        className="animate-fade-up"
+        titleClassName="max-w-[11ch] text-shadow-system"
+        descriptionClassName="max-w-2xl"
+      />
 
-        <SectionTitle className="mt-8 text-shadow-system">
-          {siteContent.systemName}
-        </SectionTitle>
-      </div>
+      <Divider className="animate-fade-up mt-9 [animation-delay:120ms] sm:mt-10" />
 
-      <Divider className="animate-fade-up mt-8 [animation-delay:120ms]" />
-
-      <p className="animate-fade-up mt-8 max-w-2xl text-base leading-8 text-slate-300/90 [animation-delay:180ms] sm:text-lg">
-        Intelligent portfolio environment calibrated for cinematic interfaces,
-        neural design systems, and precise frontend engineering.
-      </p>
-
-      <div className="animate-fade-up mt-6 grid grid-cols-1 gap-2 text-[0.68rem] font-medium uppercase tracking-[0.24em] text-cyan-100/55 [animation-delay:240ms] sm:grid-cols-3 sm:gap-6">
+      <div className="animate-fade-up mt-7 grid grid-cols-1 gap-2 text-[0.68rem] font-medium uppercase tracking-[0.24em] text-cyan-100/55 [animation-delay:220ms] sm:mt-8 sm:grid-cols-3 sm:gap-6">
         <span>Protocol: React</span>
         <span>Interface: Tailwind</span>
         <span>Status: Synced</span>
       </div>
 
-      <div className="animate-fade-up mt-12 flex w-full max-w-lg flex-col gap-3 [animation-delay:320ms] sm:flex-row sm:justify-center">
-        <PrimaryButton href="#projects">Initialize Work</PrimaryButton>
-        <PrimaryButton href="#contact" variant="secondary">
-          Open Channel
-        </PrimaryButton>
+      <div className="animate-fade-up mt-11 grid w-full max-w-xl grid-cols-1 gap-3 [animation-delay:300ms] sm:mt-12 sm:flex sm:justify-center">
+        <InteractiveWrapper as="span" className="inline-flex w-full sm:w-auto" intensity="strong">
+          <PrimaryButton href="#projects">Initialize Work</PrimaryButton>
+        </InteractiveWrapper>
+        <InteractiveWrapper as="span" className="inline-flex w-full sm:w-auto" intensity="subtle">
+          <SecondaryButton href="#contact">Open Channel</SecondaryButton>
+        </InteractiveWrapper>
+      </div>
+
+      <div className="animate-fade-up mt-14 grid w-full gap-4 [animation-delay:380ms] sm:mt-16 lg:grid-cols-[1.15fr_0.85fr] lg:items-stretch">
+        <FloatingPanel className="text-left">
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-[0.64rem] font-semibold uppercase tracking-[0.28em] text-cyan-100/55">
+                Active Interface
+              </p>
+              <h2 className="mt-3 text-2xl font-semibold leading-tight text-white sm:text-3xl">
+                Cinematic command layer for intelligent web systems.
+              </h2>
+            </div>
+            <div className="rounded-full border border-cyan-100/15 bg-cyan-100/[0.04] px-4 py-2 text-[0.64rem] font-semibold uppercase tracking-[0.22em] text-cyan-50/75">
+              Synced
+            </div>
+          </div>
+        </FloatingPanel>
+
+        <GlassCard className="text-left">
+          <p className="text-[0.64rem] font-semibold uppercase tracking-[0.28em] text-cyan-100/55">
+            System Note
+          </p>
+          <p className="mt-3 text-sm leading-7 text-slate-300/82">
+            Built for calm navigation, precise presentation, and reusable visual language across every portfolio node.
+          </p>
+        </GlassCard>
+      </div>
+
+      <div className="animate-fade-up mt-4 grid w-full gap-4 [animation-delay:460ms] sm:grid-cols-3">
+        {systemStats.map((stat) => (
+          <StatCard key={stat.label} {...stat} />
+        ))}
       </div>
     </Section>
   )

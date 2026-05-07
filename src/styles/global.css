@@ -5,13 +5,21 @@
   --color-cyan-glass: rgba(103, 232, 249, 0.1);
   --color-cyan-border: rgba(103, 232, 249, 0.2);
   --color-cyan-border-strong: rgba(165, 243, 252, 0.32);
+  --color-glass-border: rgba(255, 255, 255, 0.11);
+  --color-glass-surface: rgba(255, 255, 255, 0.045);
   --color-surface: rgba(255, 255, 255, 0.035);
   --color-navbar-surface: rgba(9, 9, 15, 0.72);
   --shadow-cyan-soft: 0 0 28px rgba(34, 211, 238, 0.08);
   --shadow-cyan: 0 0 34px rgba(34, 211, 238, 0.18);
   --shadow-cyan-strong: 0 0 46px rgba(34, 211, 238, 0.28);
+  --shadow-cyan-button: 0 12px 42px rgba(34, 211, 238, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  --shadow-cyan-button-strong: 0 18px 60px rgba(34, 211, 238, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.16);
   --shadow-cyan-line: 0 0 24px rgba(34, 211, 238, 0.18);
   --shadow-dark-soft: 0 18px 60px rgba(0, 0, 0, 0.18);
+  --shadow-floating-panel: 0 24px 80px rgba(0, 0, 0, 0.24), 0 0 32px rgba(34, 211, 238, 0.06);
+  --shadow-floating-panel-hover: 0 30px 95px rgba(0, 0, 0, 0.32), 0 0 40px rgba(34, 211, 238, 0.12);
+  --shadow-glass: 0 18px 70px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --shadow-glass-hover: 0 24px 90px rgba(0, 0, 0, 0.28), 0 0 34px rgba(34, 211, 238, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.12);
   --shadow-navbar: 0 18px 70px rgba(0, 0, 0, 0.22), 0 0 28px rgba(34, 211, 238, 0.05);
   --shadow-white-soft: 0 0 34px rgba(255, 255, 255, 0.08);
   --grid-color: rgba(148, 163, 184, 0.09);
@@ -30,12 +38,31 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
 }
 
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  overscroll-behavior-y: none;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: clip;
 }
 
 #root {
