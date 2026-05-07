@@ -1,12 +1,7 @@
-import PortfolioLayout from './layouts/PortfolioLayout.jsx'
-import HeroSection from './sections/HeroSection.jsx'
+import AppRoutes from './routes/AppRoutes.jsx'
 
 function App() {
-  return (
-    <PortfolioLayout>
-      <HeroSection />
-    </PortfolioLayout>
-  )
+  return <AppRoutes />
 }
 
 export default App
