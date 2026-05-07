@@ -3,6 +3,7 @@ import SectionLabel from './SectionLabel.jsx'
 import SectionTitle from './SectionTitle.jsx'
 
 function SectionIntro({
+  as,
   eyebrow,
   title,
   description,
@@ -10,8 +11,10 @@ function SectionIntro({
   titleClassName = '',
   descriptionClassName = '',
 }) {
+  const Component = as || 'div'
+
   return (
-    <div className={cn('flex flex-col items-center text-center', className)}>
+    <Component className={cn('flex flex-col items-center text-center', className)}>
       {eyebrow && <SectionLabel>{eyebrow}</SectionLabel>}
 
       {title && (
@@ -30,7 +33,7 @@ function SectionIntro({
           {description}
         </p>
       )}
-    </div>
+    </Component>
   )
 }
 

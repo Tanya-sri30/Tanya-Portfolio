@@ -1,3 +1,4 @@
+import AmbientBackground from '../components/background/AmbientBackground.jsx'
 import Navbar from '../components/Navbar.jsx'
 import { cn } from '../utils/cn.js'
 
@@ -10,8 +11,9 @@ function MainLayout({ children, className = '' }) {
         className,
       )}
     >
+      <AmbientBackground />
       <Navbar />
-      {children}
+      <div className="relative z-10">{children}</div>
     </main>
   )
 }
