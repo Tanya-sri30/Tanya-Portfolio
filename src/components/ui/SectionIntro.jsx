@@ -18,7 +18,7 @@ function SectionIntro({
       {eyebrow && <SectionLabel>{eyebrow}</SectionLabel>}
 
       {title && (
-        <SectionTitle className={cn('mt-7 sm:mt-8', titleClassName)}>
+        <SectionTitle className={cn('mt-6 sm:mt-8', titleClassName)}>
           {title}
         </SectionTitle>
       )}
@@ -26,7 +26,7 @@ function SectionIntro({
       {description && (
         <p
           className={cn(
-            'mt-7 max-w-3xl text-pretty text-base leading-8 text-slate-300/90 sm:text-lg sm:leading-9',
+            'mt-6 max-w-3xl text-pretty text-[0.95rem] leading-7 text-[color:var(--color-text-primary)]/78 sm:mt-7 sm:text-lg sm:leading-9',
             descriptionClassName,
           )}
         >

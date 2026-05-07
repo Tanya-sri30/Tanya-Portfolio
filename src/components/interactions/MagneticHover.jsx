@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { cn } from '../../utils/cn.js'
 
 function MagneticHover({
@@ -11,6 +11,14 @@ function MagneticHover({
 }) {
   const elementRef = useRef(null)
   const frameRef = useRef(0)
+  const canMagnetize = useRef(false)
+
+  useEffect(() => {
+    canMagnetize.current =
+      window.matchMedia('(hover: hover)').matches &&
+      window.matchMedia('(pointer: fine)').matches &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  }, [])
 
   const moveTo = (x, y) => {
     cancelAnimationFrame(frameRef.current)
@@ -21,7 +29,7 @@ function MagneticHover({
   }
 
   const handlePointerMove = (event) => {
-    if (window.matchMedia('(pointer: coarse)').matches) {
+    if (!canMagnetize.current) {
       return
     }
 

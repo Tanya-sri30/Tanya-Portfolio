@@ -1,30 +1,26 @@
 export const navbarLinks = [
   {
-    label: 'About',
+    label: 'ABOUT',
     href: '#about',
   },
   {
-    label: 'My Story',
-    href: '#story',
-  },
-  {
-    label: 'Projects',
+    label: 'PROJECTS',
     href: '#projects',
   },
   {
-    label: 'Achievements',
+    label: 'ACHIEVEMENTS',
     href: '#achievements',
   },
   {
-    label: 'Experience',
+    label: 'EXPERIENCE',
     href: '#experience',
   },
   {
-    label: 'Skills',
+    label: 'SKILLS',
     href: '#skills',
   },
   {
-    label: 'Contact',
+    label: 'CONTACT',
     href: '#contact',
   },
 ]

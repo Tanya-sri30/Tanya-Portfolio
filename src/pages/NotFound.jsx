@@ -23,26 +23,26 @@ function NotFound() {
         <div className="animate-fade-up flex flex-col items-center">
           <SectionLabel>NEURAL ROUTE FAILURE</SectionLabel>
 
-          <p className="mt-8 text-[0.7rem] font-semibold uppercase tracking-[0.42em] text-cyan-100/45">
+          <p className="mt-8 font-system text-[0.7rem] font-semibold uppercase tracking-[0.42em] text-[color:var(--color-text-muted)]">
             Diagnostic Code
           </p>
 
-          <h1 className="mt-3 text-7xl font-semibold leading-none tracking-normal text-white text-shadow-system sm:text-8xl lg:text-9xl">
+          <h1 className="mt-3 font-display text-7xl font-semibold leading-none tracking-normal text-[color:var(--color-text-primary)] text-shadow-system sm:text-8xl lg:text-9xl">
             404
           </h1>
         </div>
 
         <Divider className="animate-fade-up mt-8 max-w-xl [animation-delay:120ms]" />
 
-        <p className="animate-fade-up mt-8 max-w-xl text-base leading-8 text-slate-300/90 [animation-delay:180ms] sm:text-lg">
+        <p className="animate-fade-up mt-8 max-w-xl text-base leading-8 text-[color:var(--color-text-primary)]/78 [animation-delay:180ms] sm:text-lg">
           Requested interface node is offline or does not exist in the current
           SYSTEM.TANYA() navigation matrix.
         </p>
 
-        <div className="animate-fade-up mt-8 grid w-full max-w-xl grid-cols-1 gap-3 text-left text-xs uppercase tracking-[0.24em] text-cyan-100/55 [animation-delay:240ms] sm:grid-cols-3">
-          <span className="border border-white/10 bg-white/[0.025] p-4">Signal: Lost</span>
-          <span className="border border-white/10 bg-white/[0.025] p-4">Route: Unknown</span>
-          <span className="border border-white/10 bg-white/[0.025] p-4">Recovery: Ready</span>
+        <div className="animate-fade-up mt-8 grid w-full max-w-xl grid-cols-1 gap-3 text-left font-system text-xs uppercase tracking-[0.24em] text-[color:var(--color-text-muted)] [animation-delay:240ms] sm:grid-cols-3">
+          <span className="border border-[rgba(232,237,242,0.1)] bg-[color:var(--color-surface)] p-4">Signal: Lost</span>
+          <span className="border border-[rgba(232,237,242,0.1)] bg-[color:var(--color-surface)] p-4">Route: Unknown</span>
+          <span className="border border-[rgba(232,237,242,0.1)] bg-[color:var(--color-surface)] p-4">Recovery: Ready</span>
         </div>
 
         <div className="animate-fade-up mt-10 [animation-delay:320ms]">
