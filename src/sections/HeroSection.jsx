@@ -4,7 +4,7 @@ import Section from '../components/Section.jsx'
 import Divider from '../components/ui/Divider.jsx'
 import FloatingPanel from '../components/ui/FloatingPanel.jsx'
 import GlassCard from '../components/ui/GlassCard.jsx'
-import InteractiveWrapper from '../components/ui/InteractiveWrapper.jsx'
+import MagneticHover from '../components/interactions/MagneticHover.jsx'
 import PrimaryButton from '../components/ui/PrimaryButton.jsx'
 import SecondaryButton from '../components/ui/SecondaryButton.jsx'
 import SectionIntro from '../components/ui/SectionIntro.jsx'
@@ -66,14 +66,14 @@ function HeroSection() {
 
       <StaggerContainer className="mt-11 grid w-full max-w-xl grid-cols-1 gap-3 sm:mt-12 sm:flex sm:justify-center">
         <StaggerContainer.Item as="span" className="inline-flex w-full sm:w-auto">
-          <InteractiveWrapper as="span" className="inline-flex w-full sm:w-auto" intensity="strong">
+          <MagneticHover className="inline-flex w-full sm:w-auto" strength={0.12} max={9}>
             <PrimaryButton href="#projects">Initialize Work</PrimaryButton>
-          </InteractiveWrapper>
+          </MagneticHover>
         </StaggerContainer.Item>
         <StaggerContainer.Item as="span" className="inline-flex w-full sm:w-auto">
-          <InteractiveWrapper as="span" className="inline-flex w-full sm:w-auto" intensity="subtle">
+          <MagneticHover className="inline-flex w-full sm:w-auto" strength={0.09} max={7}>
             <SecondaryButton href="#contact">Open Channel</SecondaryButton>
-          </InteractiveWrapper>
+          </MagneticHover>
         </StaggerContainer.Item>
       </StaggerContainer>
 

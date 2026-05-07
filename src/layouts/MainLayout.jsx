@@ -1,4 +1,5 @@
 import AmbientBackground from '../components/background/AmbientBackground.jsx'
+import CustomCursor from '../components/interactions/CustomCursor.jsx'
 import Navbar from '../components/Navbar.jsx'
 import { cn } from '../utils/cn.js'
 
@@ -12,6 +13,7 @@ function MainLayout({ children, className = '' }) {
       )}
     >
       <AmbientBackground />
+      <CustomCursor />
       <Navbar />
       <div className="relative z-10">{children}</div>
     </main>

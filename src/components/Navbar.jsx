@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Container from './Container.jsx'
+import MagneticHover from './interactions/MagneticHover.jsx'
 import { navbarLinks } from '../data/navbarLinks.js'
 import { cn } from '../utils/cn.js'
 
@@ -49,7 +50,7 @@ function Navbar() {
           )}
           aria-label="Primary navigation"
         >
-          <Link to="/" className="group flex items-center gap-3" onClick={closeMenu}>
+          <MagneticHover as={Link} to="/" className="group flex items-center gap-3" strength={0.08} max={6} onClick={closeMenu}>
             <span className="relative flex h-3 w-3">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-200 opacity-25" />
               <span className="relative inline-flex h-3 w-3 rounded-full border border-cyan-100/60 bg-cyan-300 shadow-[var(--shadow-cyan-soft)]" />
@@ -73,20 +74,23 @@ function Navbar() {
                 Online // Neural Link Stable
               </span>
             </span>
-          </Link>
+          </MagneticHover>
 
           <div className="hidden items-center gap-1 lg:flex">
             {navbarLinks.map((link) => (
-              <a
+              <MagneticHover
+                as="a"
                 key={link.href}
                 href={link.href}
                 className="group relative px-3 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-300/75 transition duration-300 hover:text-cyan-50"
+                strength={0.12}
+                max={7}
               >
                 <span className="relative z-10 transition duration-300 group-hover:[text-shadow:0_0_18px_rgba(34,211,238,0.2)]">
                   {link.label}
                 </span>
                 <span className="absolute inset-x-3 bottom-1 h-px origin-left scale-x-0 bg-cyan-200/70 shadow-[var(--shadow-cyan-line)] transition duration-300 ease-out group-hover:scale-x-100" />
-              </a>
+              </MagneticHover>
             ))}
           </div>
 
