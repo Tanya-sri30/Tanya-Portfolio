@@ -88,7 +88,7 @@ function SkillsSection() {
       <div className="mt-12">
         <div
           ref={containerRef}
-          className="relative w-full h-[600px] bg-[#0f0f0f] rounded-lg overflow-hidden cursor-pointer"
+          className="relative w-full h-[600px] rounded-lg overflow-hidden cursor-pointer"
           onClick={handleExplode}
           style={{ fontFamily: 'monospace' }}
         >

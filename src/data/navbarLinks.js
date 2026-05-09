@@ -8,14 +8,6 @@ export const navbarLinks = [
     href: '#projects',
   },
   {
-    label: 'ACHIEVEMENTS',
-    href: '#achievements',
-  },
-  {
-    label: 'EXPERIENCE',
-    href: '#experience',
-  },
-  {
     label: 'SKILLS',
     href: '#skills',
   },

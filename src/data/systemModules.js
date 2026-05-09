@@ -76,38 +76,3 @@ export const PROJECTS = [
     github: 'https://github.com/Tanya-sri30/AeroAssessX',
   },
 ]
-
-export const achievements = [
-  { value: '07', label: 'Interface Modules' },
-  { value: '99%', label: 'Design Cohesion' },
-  { value: '24ms', label: 'Perceived Response' },
-]
-
-export const experienceTimeline = [
-  {
-    phase: 'PHASE 01',
-    title: 'System Foundation',
-    detail: 'Scalable React architecture, routing, layout primitives, and global motion systems.',
-  },
-  {
-    phase: 'PHASE 02',
-    title: 'Interface Intelligence',
-    detail: 'Glassmorphism modules, responsive rhythm, cursor influence, and cinematic reveals.',
-  },
-  {
-    phase: 'PHASE 03',
-    title: 'Operational Polish',
-    detail: 'AI-native content systems, mobile adaptation, and production-ready visual hierarchy.',
-  },
-]
-
-export const capabilities = [
-  'React Architecture',
-  'Design Systems',
-  'Tailwind CSS',
-  'Motion Design',
-  'Responsive UI',
-  'Frontend Performance',
-  'Interaction Systems',
-  'AI Interface Design',
-]
