@@ -5,6 +5,7 @@ import DeployedSystemsSection from '../sections/DeployedSystemsSection.jsx'
 import ExperienceSection from '../sections/ExperienceSection.jsx'
 import MainLayout from '../layouts/MainLayout.jsx'
 import HeroSection from '../sections/HeroSection.jsx'
+import SkillsSection from '../sections/SkillsSection.jsx'
 import TransmissionSection from '../sections/TransmissionSection.jsx'
 
 function Home() {
@@ -13,6 +14,7 @@ function Home() {
       <HeroSection />
       <AboutSection />
       <DeployedSystemsSection />
+      <SkillsSection />
       <AchievementsSection />
       <ExperienceSection />
       <CapabilitiesSection />

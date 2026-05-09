@@ -4,7 +4,7 @@ import { cn } from '../utils/cn.js'
 const spacingStyles = {
   compact: 'py-14 sm:py-20 lg:py-24',
   default: 'py-16 sm:py-24 lg:py-36',
-  spacious: 'py-20 sm:py-32 lg:py-44',
+  spacious: 'py-16 sm:py-24 lg:py-36',
 }
 
 function Section({
