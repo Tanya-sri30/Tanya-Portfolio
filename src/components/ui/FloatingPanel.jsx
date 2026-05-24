@@ -5,18 +5,15 @@ function FloatingPanel({ children, className = '', contentClassName = '' }) {
   return (
     <MagneticHover
       className={cn(
-        'relative w-full overflow-hidden rounded-2xl border border-[rgba(232,237,242,0.1)] sm:rounded-3xl',
-        'bg-[linear-gradient(135deg,rgba(255,255,255,0.075),rgba(255,255,255,0.025))]',
-        'shadow-[var(--shadow-floating-panel)] backdrop-blur-2xl',
-        'transition duration-500 hover:border-[color:var(--color-cyan-border)] hover:shadow-[var(--shadow-floating-panel-hover)] motion-reduce:transform-none',
+        'relative w-full overflow-hidden rounded-2xl border border-white/10',
+        'bg-white/[0.03] shadow-[0_10px_40px_rgba(0,0,0,0.25)]',
+        'transition duration-500 ease-out hover:-translate-y-1 hover:border-white/15 hover:bg-white/[0.045] hover:shadow-[0_16px_48px_rgba(0,0,0,0.28)] motion-reduce:transform-none',
         className,
       )}
-      strength={0.06}
-      max={7}
+      strength={0.03}
+      max={4}
     >
-      <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(0,212,255,0.1),transparent_30%)]" />
-      <span className="pointer-events-none absolute inset-x-8 top-0 h-px bg-[rgba(0,212,255,0.28)]" />
-      <div className={cn('relative p-4 sm:p-6 lg:p-7', contentClassName)}>{children}</div>
+      <div className={cn('relative p-5 sm:p-6', contentClassName)}>{children}</div>
     </MagneticHover>
   )
 }

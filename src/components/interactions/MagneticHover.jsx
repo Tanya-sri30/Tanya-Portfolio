@@ -5,8 +5,8 @@ function MagneticHover({
   as,
   children,
   className = '',
-  strength = 0.18,
-  max = 10,
+  strength = 0.06,
+  max = 5,
   ...props
 }) {
   const elementRef = useRef(null)

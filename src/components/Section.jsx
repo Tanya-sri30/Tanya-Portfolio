@@ -2,9 +2,9 @@ import Container from './Container.jsx'
 import { cn } from '../utils/cn.js'
 
 const spacingStyles = {
-  compact: 'py-14 sm:py-20 lg:py-24',
-  default: 'py-16 sm:py-24 lg:py-36',
-  spacious: 'py-16 sm:py-24 lg:py-36',
+  compact: 'py-16 lg:py-24',
+  default: 'py-16 lg:py-24',
+  spacious: 'py-16 lg:py-28',
 }
 
 function Section({
@@ -20,7 +20,7 @@ function Section({
       id={id}
       className={cn(
         fullScreen
-          ? 'flex min-h-[100svh] items-center py-24 sm:py-28 lg:py-36'
+          ? 'flex min-h-[100svh] items-center py-24 lg:py-32'
           : spacingStyles[spacing],
         className,
       )}

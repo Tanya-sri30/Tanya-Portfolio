@@ -36,12 +36,11 @@ const allTech = [...techData.languages, ...techData.frameworks, ...techData.tool
 
 function SkillsSection() {
   const [hoveredTech, setHoveredTech] = useState(null)
-  const [isExploded, setIsExploded] = useState(false)
   const containerRef = useRef(null)
   const [positions, setPositions] = useState({})
 
   useEffect(() => {
-    if (containerRef.current && !isExploded) {
+    if (containerRef.current) {
       const container = containerRef.current
       const nodes = container.querySelectorAll('.tech-node')
       const newPositions = {}
@@ -57,7 +56,7 @@ function SkillsSection() {
 
       setPositions(newPositions)
     }
-  }, [isExploded])
+  }, [])
 
   const getConnectedTech = (techName) => {
     const tech = allTech.find(t => t.name === techName)
@@ -73,27 +72,20 @@ function SkillsSection() {
     return hoveredTech === techName || isConnected(hoveredTech, techName)
   }
 
-  const handleExplode = () => {
-    setIsExploded(true)
-    setTimeout(() => setIsExploded(false), 2000)
-  }
-
   return (
     <Section id="skills" spacing="spacious">
       <SectionIntro
         eyebrow="SKILLS & TECH STACK"
-        description="Interactive visualization of my technical ecosystem"
+        title="Technical ecosystem."
+        description="A focused technical ecosystem across machine learning, data workflows, web systems, and developer tooling."
       />
 
-      <div className="mt-12">
+      <div className="mt-10">
         <div
           ref={containerRef}
-          className="relative w-full h-[600px] rounded-lg overflow-hidden cursor-pointer"
-          onClick={handleExplode}
-          style={{ fontFamily: 'monospace' }}
+          className="relative h-[600px] w-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] shadow-[0_10px_40px_rgba(0,0,0,0.25)]"
         >
-          {/* Connection Lines */}
-          <svg className="absolute inset-0 w-full h-full pointer-events-none">
+          <svg className="pointer-events-none absolute inset-0 h-full w-full">
             {Object.entries(positions).map(([tech1, pos1]) =>
               Object.entries(positions).map(([tech2, pos2]) => {
                 if (tech1 < tech2 && isConnected(tech1, tech2)) {
@@ -105,9 +97,9 @@ function SkillsSection() {
                       y1={pos1.y}
                       x2={pos2.x}
                       y2={pos2.y}
-                      stroke={highlighted ? '#00ffff' : '#333'}
-                      strokeWidth={highlighted ? '3' : '1'}
-                      opacity={highlighted ? '1' : '0.3'}
+                      stroke={highlighted ? '#7dd3fc' : 'rgba(255,255,255,0.12)'}
+                      strokeWidth={highlighted ? '1.5' : '1'}
+                      opacity={highlighted ? '0.65' : '0.42'}
                     />
                   )
                 }
@@ -116,44 +108,37 @@ function SkillsSection() {
             )}
           </svg>
 
-          {/* Tech Categories */}
-          <div className="relative z-10 p-8 h-full flex flex-col justify-between">
-            {/* Languages */}
-            <div className="flex justify-center gap-8 flex-wrap">
+          <div className="relative z-10 flex h-full flex-col justify-between p-5 sm:p-8">
+            <div className="flex flex-wrap justify-center gap-5 sm:gap-8">
               {techData.languages.map((tech, index) => (
                 <TechNode
                   key={tech.name}
                   tech={tech}
                   isHighlighted={isHighlighted(tech.name)}
-                  isExploded={isExploded}
                   onHover={setHoveredTech}
                   delay={index * 0.1}
                 />
               ))}
             </div>
 
-            {/* Frameworks & Libraries */}
-            <div className="flex justify-center gap-8 flex-wrap">
+            <div className="flex flex-wrap justify-center gap-5 sm:gap-8">
               {techData.frameworks.map((tech, index) => (
                 <TechNode
                   key={tech.name}
                   tech={tech}
                   isHighlighted={isHighlighted(tech.name)}
-                  isExploded={isExploded}
                   onHover={setHoveredTech}
                   delay={index * 0.1}
                 />
               ))}
             </div>
 
-            {/* Tools & Platforms */}
-            <div className="flex justify-center gap-8 flex-wrap">
+            <div className="flex flex-wrap justify-center gap-5 sm:gap-8">
               {techData.tools.map((tech, index) => (
                 <TechNode
                   key={tech.name}
                   tech={tech}
                   isHighlighted={isHighlighted(tech.name)}
-                  isExploded={isExploded}
                   onHover={setHoveredTech}
                   delay={index * 0.1}
                 />
@@ -167,61 +152,41 @@ function SkillsSection() {
   )
 }
 
-function TechNode({ tech, isHighlighted, isExploded, onHover, delay }) {
+function TechNode({ tech, isHighlighted, onHover, delay }) {
   const nodeRef = useRef(null)
-
-  useEffect(() => {
-    if (isExploded && nodeRef.current) {
-      const angle = Math.random() * 2 * Math.PI
-      const distance = 200 + Math.random() * 200
-      const x = Math.cos(angle) * distance
-      const y = Math.sin(angle) * distance
-
-      nodeRef.current.style.transform = `translate(${x}px, ${y}px) scale(0.5)`
-      nodeRef.current.style.transition = 'transform 1s ease-out'
-
-      setTimeout(() => {
-        if (nodeRef.current) {
-          nodeRef.current.style.transform = 'translate(0, 0) scale(1)'
-          nodeRef.current.style.transition = 'transform 0.5s ease-in'
-        }
-      }, 1000)
-    }
-  }, [isExploded])
 
   return (
     <div
       ref={nodeRef}
-      className={`tech-node flex flex-col items-center transition-all duration-300 ${
-        isHighlighted ? 'scale-110' : 'scale-100'
+      className={`tech-node flex flex-col items-center transition duration-500 ease-out ${
+        isHighlighted ? '-translate-y-1' : ''
       }`}
       data-tech={tech.name}
       onMouseEnter={() => onHover(tech.name)}
       onMouseLeave={() => onHover(null)}
       style={{
         transitionDelay: `${delay}s`,
-        filter: isHighlighted ? 'drop-shadow(0 0 10px #00ffff)' : 'none',
       }}
     >
       <div
-        className={`w-16 h-16 rounded-lg flex items-center justify-center transition-all duration-300 ${
-          isHighlighted ? 'bg-[#1a1a1a] border-2 border-cyan-400' : 'bg-[#1a1a1a] border border-gray-600'
+        className={`flex h-16 w-16 items-center justify-center rounded-2xl border bg-white/[0.03] transition duration-500 ease-out ${
+          isHighlighted ? 'border-[rgba(125,211,252,0.32)] bg-[rgba(125,211,252,0.08)]' : 'border-white/10'
         }`}
       >
         <img
           src={`https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/${tech.icon}`}
           alt={tech.name}
-          className="w-10 h-10"
+          className="h-10 w-10 opacity-85 saturate-[0.85] transition duration-500 ease-out"
           onError={(e) => {
             e.target.style.display = 'none'
             e.target.nextSibling.style.display = 'block'
           }}
         />
-        <div className="hidden text-cyan-400 text-2xl font-bold">{tech.name.charAt(0)}</div>
+        <div className="hidden text-2xl font-semibold text-[color:var(--color-accent-primary)]">{tech.name.charAt(0)}</div>
       </div>
       <span
-        className={`mt-2 text-xs font-mono text-center transition-colors duration-300 ${
-          isHighlighted ? 'text-cyan-400' : 'text-gray-400'
+        className={`mt-2 text-center text-xs font-medium transition-colors duration-500 ${
+          isHighlighted ? 'text-[color:var(--color-accent-primary)]' : 'text-zinc-500'
         }`}
       >
         {tech.name}

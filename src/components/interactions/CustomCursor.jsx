@@ -38,9 +38,9 @@ function CustomCursor() {
       speed.current += (movement - speed.current) * 0.18
       previous.current = { ...cursor.current }
 
-      const scale = Math.min(1.45, 1 + speed.current / 90)
-      const glowScale = Math.min(1.8, 1 + speed.current / 70)
-      const opacity = Math.min(0.72, 0.26 + speed.current / 160)
+      const scale = Math.min(1.2, 1 + speed.current / 160)
+      const glowScale = Math.min(1.35, 1 + speed.current / 140)
+      const opacity = Math.min(0.34, 0.14 + speed.current / 260)
 
       cursorRef.current?.style.setProperty(
         'transform',
@@ -68,7 +68,7 @@ function CustomCursor() {
     <>
       <span
         ref={cursorRef}
-        className="pointer-events-none fixed left-0 top-0 z-[70] hidden h-4 w-4 rounded-full border border-[rgba(0,212,255,0.55)] bg-[rgba(0,212,255,0.1)] shadow-[var(--shadow-cursor)] transition-opacity duration-300 lg:block"
+        className="pointer-events-none fixed left-0 top-0 z-[70] hidden h-4 w-4 rounded-full border border-[rgba(125,211,252,0.32)] bg-[rgba(125,211,252,0.06)] shadow-[var(--shadow-cursor)] transition-opacity duration-500 lg:block"
         aria-hidden="true"
       />
       <CursorGlow ref={glowRef} />

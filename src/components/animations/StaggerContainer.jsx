@@ -6,8 +6,8 @@ const containerVariants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.08,
+      staggerChildren: 0.08,
+      delayChildren: 0.06,
     },
   },
 }
@@ -15,13 +15,13 @@ const containerVariants = {
 const childVariants = {
   hidden: {
     opacity: 0,
-    y: 16,
+    y: 14,
   },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.72,
+      duration: 0.6,
       ease,
     },
   },

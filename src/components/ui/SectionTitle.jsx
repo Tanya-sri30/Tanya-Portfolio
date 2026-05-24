@@ -1,16 +1,17 @@
 import { cn } from '../../utils/cn.js'
 
-function SectionTitle({ children, className = '' }) {
+function SectionTitle({ as, children, className = '' }) {
+  const Component = as || 'h2'
+
   return (
-    <h1
+    <Component
       className={cn(
-        'max-w-6xl text-balance font-display text-[clamp(3rem,14vw,5.25rem)] font-semibold leading-[0.98] tracking-normal text-[color:var(--color-text-primary)]',
-        'sm:text-7xl sm:leading-[0.95] lg:text-8xl xl:text-9xl',
+        'max-w-3xl text-balance font-display text-3xl font-semibold leading-tight tracking-normal text-[color:var(--color-text-primary)] sm:text-4xl',
         className,
       )}
     >
       {children}
-    </h1>
+    </Component>
   )
 }
 

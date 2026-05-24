@@ -9,8 +9,8 @@ function ExperienceSection() {
     <Section id="experience">
       <SectionIntro
         eyebrow="EXPERIENCE"
-        title="Build phases recorded as system memory."
-        titleClassName="max-w-5xl text-4xl sm:text-6xl lg:text-7xl"
+        title="Experience shaped through focused building."
+        titleClassName="max-w-3xl"
       />
 
       <StaggerContainer className="mt-10 grid gap-4">
@@ -18,13 +18,13 @@ function ExperienceSection() {
           <StaggerContainer.Item key={item.phase}>
             <FloatingPanel>
               <div className="grid gap-4 text-left md:grid-cols-[0.22fr_0.34fr_1fr] md:items-center">
-                <p className="font-system text-[0.68rem] uppercase tracking-[0.24em] text-[color:var(--color-accent-primary)]">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500">
                   {item.phase}
                 </p>
                 <h3 className="text-xl font-semibold text-[color:var(--color-text-primary)]">
                   {item.title}
                 </h3>
-                <p className="text-sm leading-7 text-[color:var(--color-text-primary)]/75">
+                <p className="text-sm leading-7 text-zinc-400">
                   {item.detail}
                 </p>
               </div>

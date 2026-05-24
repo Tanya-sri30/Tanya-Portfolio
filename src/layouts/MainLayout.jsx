@@ -8,7 +8,7 @@ function MainLayout({ children, className = '' }) {
     <main
       className={cn(
         'min-h-screen overflow-x-hidden bg-[color:var(--color-background)] text-[color:var(--color-text-primary)] antialiased',
-        'selection:bg-[rgba(0,212,255,0.25)] selection:text-[color:var(--color-text-primary)]',
+        'selection:bg-[rgba(125,211,252,0.22)] selection:text-[color:var(--color-text-primary)]',
         className,
       )}
     >

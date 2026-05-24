@@ -1,12 +1,8 @@
 import FadeUp from '../components/animations/FadeUp.jsx'
 import StaggerContainer from '../components/animations/StaggerContainer.jsx'
 import Section from '../components/Section.jsx'
-import Divider from '../components/ui/Divider.jsx'
-import MagneticHover from '../components/interactions/MagneticHover.jsx'
 import PrimaryButton from '../components/ui/PrimaryButton.jsx'
 import SecondaryButton from '../components/ui/SecondaryButton.jsx'
-import SectionIntro from '../components/ui/SectionIntro.jsx'
-import { siteContent } from '../data/siteContent.js'
 
 function HeroSection() {
   return (
@@ -14,49 +10,53 @@ function HeroSection() {
       id="home"
       fullScreen
       className="relative overflow-hidden"
-      containerClassName="relative z-10 flex max-w-[1180px] flex-col items-center text-center"
+      containerClassName="relative z-10 flex flex-col items-start"
     >
       <div className="hero-atmosphere" aria-hidden="true">
-        <span className="hero-grid" />
         <span className="hero-aura hero-aura-primary" />
         <span className="hero-aura hero-aura-secondary" />
-        <span className="hero-scanline" />
       </div>
 
-      <SectionIntro
-        eyebrow={siteContent.status}
-        title={siteContent.systemName}
-        
-        className=""
-        titleClassName="max-w-[28ch] text-shadow-system leading-[1.02] tracking-[-0.02em] sm:max-w-[32ch]"
-        descriptionClassName="max-w-[42rem] px-1 sm:max-w-2xl sm:px-0"
-      />
+      <div className="max-w-4xl">
+        <FadeUp as="p" className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500">
+          AI/ML Student &bull; Systems Builder
+        </FadeUp>
 
-      <FadeUp className="mt-10 w-full sm:mt-12" delay={0.08}>
-        <Divider />
-      </FadeUp>
+        <FadeUp
+          as="h1"
+          delay={0.08}
+          className="mt-5 max-w-3xl font-display text-4xl font-semibold leading-[0.95] tracking-[-0.05em] text-[color:var(--color-text-primary)] text-shadow-system sm:text-5xl lg:text-6xl"
+        >
+          Tanya Srivastava
+        </FadeUp>
 
-      <StaggerContainer className="mt-6 grid grid-cols-1 gap-2 font-system text-[0.64rem] font-medium uppercase tracking-[0.2em] text-[color:var(--color-text-muted)] sm:mt-8 sm:grid-cols-3 sm:gap-6 sm:text-[0.68rem] sm:tracking-[0.24em]">
-        <StaggerContainer.Item as="span">LEARNING</StaggerContainer.Item>
-        <StaggerContainer.Item as="span">Building</StaggerContainer.Item>
-        <StaggerContainer.Item as="span">Evolving</StaggerContainer.Item>
-      </StaggerContainer>
+        <FadeUp
+          as="p"
+          delay={0.16}
+          className="mt-8 max-w-2xl text-base leading-7 text-zinc-400 sm:text-lg"
+        >
+          AI/ML student fascinated by intelligent systems, machine learning, and building technology that creates meaningful impact.
+        </FadeUp>
 
-      <StaggerContainer className="mt-14 grid w-full max-w-xl grid-cols-1 gap-3 sm:mt-16 sm:flex sm:justify-center">
-        <StaggerContainer.Item as="span" className="inline-flex w-full sm:w-auto">
-          <MagneticHover className="inline-flex w-full sm:w-auto" strength={0.12} max={9}>
-            <PrimaryButton href="#projects">Explore Work</PrimaryButton>
-          </MagneticHover>
-        </StaggerContainer.Item>
-        <StaggerContainer.Item as="span" className="inline-flex w-full sm:w-auto">
-          <MagneticHover className="inline-flex w-full sm:w-auto" strength={0.09} max={7}>
-            <SecondaryButton href="#contact">Let's Connect</SecondaryButton>
-          </MagneticHover>
-        </StaggerContainer.Item>
-      </StaggerContainer>
+        <FadeUp
+          as="p"
+          delay={0.24}
+          className="mt-10 max-w-2xl text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500"
+        >
+          Based in India &bull; Building & Learning &bull; Open to Opportunities
+        </FadeUp>
+
+        <StaggerContainer className="mt-10 grid w-full max-w-md grid-cols-1 gap-3 sm:flex">
+          <StaggerContainer.Item as="span" className="inline-flex w-full sm:w-auto">
+            <PrimaryButton href="#projects">View Projects</PrimaryButton>
+          </StaggerContainer.Item>
+          <StaggerContainer.Item as="span" className="inline-flex w-full sm:w-auto">
+            <SecondaryButton href="#contact">Contact Me</SecondaryButton>
+          </StaggerContainer.Item>
+        </StaggerContainer>
+      </div>
     </Section>
   )
 }
-
 
 export default HeroSection

@@ -1,5 +1,5 @@
 export const siteContent = {
   name: 'Tanya | Portfolio',
-  systemName: 'BUILDING SCALABLE INTELLIGENT SYSTEMS',
+  systemName: 'Building scalable intelligent systems',
   status: 'Tanya',
 }

@@ -11,19 +11,19 @@ function TransmissionSection() {
     <Section id="contact" spacing="spacious">
       <FloatingPanel className="mx-auto max-w-5xl">
         <SectionIntro
-          eyebrow="TRANSMISSION"
-          title="Open a secure channel."
-          description="Ready to transmit a brief, collaboration signal, or future system request."
+          eyebrow="CONTACT"
+          title="Start a thoughtful conversation."
+          description="Ready to discuss internships, collaborations, or product ideas with room for craft and clarity."
           as={FadeUp}
-          titleClassName="max-w-4xl text-4xl sm:text-6xl lg:text-7xl"
+          titleClassName="max-w-3xl"
         />
 
-        <div className="mt-10 grid gap-3 sm:flex sm:justify-center">
+        <div className="mt-10 grid gap-3 sm:flex">
           <MagneticHover>
-            <PrimaryButton href="mailto:tanya@example.com">Send Transmission</PrimaryButton>
+            <PrimaryButton href="mailto:tanya@example.com">Send Message</PrimaryButton>
           </MagneticHover>
           <MagneticHover strength={0.08}>
-            <SecondaryButton href="#home">Return To Boot</SecondaryButton>
+            <SecondaryButton href="#home">Return Home</SecondaryButton>
           </MagneticHover>
         </div>
       </FloatingPanel>

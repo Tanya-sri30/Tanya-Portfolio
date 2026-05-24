@@ -7,8 +7,8 @@ function Reveal({
   children,
   className = '',
   delay = 0,
-  duration = 0.8,
-  distance = 18,
+  duration = 0.65,
+  distance = 14,
   once = true,
   amount = 0.28,
   ...props

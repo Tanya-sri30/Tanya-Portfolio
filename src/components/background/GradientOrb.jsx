@@ -10,7 +10,7 @@ function GradientOrb({
   return (
     <span
       className={cn(
-        'ambient-orb absolute rounded-full blur-3xl will-change-transform',
+        'ambient-orb absolute rounded-full blur-2xl will-change-transform',
         size,
         className,
       )}

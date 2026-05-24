@@ -9,14 +9,14 @@ function AchievementsSection() {
     <Section id="achievements">
       <SectionIntro
         eyebrow="ACHIEVEMENTS"
-        title="Measured signals from the operating layer."
-        titleClassName="max-w-4xl text-4xl sm:text-6xl lg:text-7xl"
+        title="Milestones with measurable intent."
+        titleClassName="max-w-3xl"
       />
 
       <StaggerContainer className="mt-10 grid gap-4 sm:grid-cols-3">
         {achievements.map((achievement) => (
           <StaggerContainer.Item key={achievement.label}>
-            <StatCard {...achievement} detail="System telemetry" />
+            <StatCard {...achievement} detail="Portfolio signal" />
           </StaggerContainer.Item>
         ))}
       </StaggerContainer>
