@@ -27,7 +27,7 @@ function SectionIntro({
       {description && (
         <p
           className={cn(
-            'mt-6 max-w-2xl text-pretty text-base leading-7 text-zinc-400 sm:text-lg',
+            'mt-6 max-w-2xl text-pretty text-base leading-7 text-[color:var(--color-text-secondary)] sm:text-lg',
             descriptionClassName,
           )}
         >

@@ -18,10 +18,10 @@ function StorySection() {
         {storySignals.map((signal, index) => (
           <StaggerContainer.Item key={signal}>
             <GlassCard className="h-full">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--color-text-muted)]">
                 Signal 0{index + 1}
               </p>
-              <p className="mt-5 text-left text-sm leading-7 text-zinc-400">
+              <p className="mt-5 text-left text-sm leading-7 text-[color:var(--color-text-secondary)]">
                 {signal}
               </p>
             </GlassCard>

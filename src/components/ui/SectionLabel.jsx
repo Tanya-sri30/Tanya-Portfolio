@@ -4,7 +4,7 @@ function SectionLabel({ children, className = '' }) {
   return (
     <p
       className={cn(
-        'text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500',
+        'text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--color-text-muted)]',
         className,
       )}
     >

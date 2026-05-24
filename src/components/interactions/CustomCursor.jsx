@@ -8,6 +8,7 @@ function CustomCursor() {
   const cursor = useRef({ x: 0, y: 0 })
   const previous = useRef({ x: 0, y: 0 })
   const speed = useRef(0)
+  const lastTrail = useRef(0)
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -21,6 +22,18 @@ function CustomCursor() {
 
     const handlePointerMove = (event) => {
       position.current = { x: event.clientX, y: event.clientY }
+
+      const now = performance.now()
+
+      if (now - lastTrail.current > 34) {
+        lastTrail.current = now
+        const trail = document.createElement('span')
+        trail.className = 'cursor-trail-dot'
+        trail.style.left = `${event.clientX}px`
+        trail.style.top = `${event.clientY}px`
+        document.body.appendChild(trail)
+        window.setTimeout(() => trail.remove(), 280)
+      }
     }
 
     const animate = () => {
@@ -38,9 +51,9 @@ function CustomCursor() {
       speed.current += (movement - speed.current) * 0.18
       previous.current = { ...cursor.current }
 
-      const scale = Math.min(1.2, 1 + speed.current / 160)
-      const glowScale = Math.min(1.35, 1 + speed.current / 140)
-      const opacity = Math.min(0.34, 0.14 + speed.current / 260)
+      const scale = Math.min(1.28, 1 + speed.current / 150)
+      const glowScale = Math.min(1.45, 1 + speed.current / 130)
+      const opacity = Math.min(0.42, 0.16 + speed.current / 240)
 
       cursorRef.current?.style.setProperty(
         'transform',
@@ -68,7 +81,7 @@ function CustomCursor() {
     <>
       <span
         ref={cursorRef}
-        className="pointer-events-none fixed left-0 top-0 z-[70] hidden h-4 w-4 rounded-full border border-[rgba(125,211,252,0.32)] bg-[rgba(125,211,252,0.06)] shadow-[var(--shadow-cursor)] transition-opacity duration-500 lg:block"
+        className="pointer-events-none fixed left-0 top-0 z-[70] hidden h-4 w-4 rounded-full border border-[rgba(17,17,17,0.55)] bg-[rgba(217,107,43,0.22)] mix-blend-multiply transition-opacity duration-500 lg:block"
         aria-hidden="true"
       />
       <CursorGlow ref={glowRef} />

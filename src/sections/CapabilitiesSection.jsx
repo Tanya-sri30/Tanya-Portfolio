@@ -17,7 +17,7 @@ function CapabilitiesSection() {
         {capabilities.map((capability) => (
           <StaggerContainer.Item key={capability}>
             <GlassCard>
-              <p className="text-left text-xs font-semibold uppercase tracking-[0.18em] text-zinc-300">
+              <p className="text-left text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--color-text-secondary)]">
                 {capability}
               </p>
             </GlassCard>

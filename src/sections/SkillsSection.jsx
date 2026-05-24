@@ -83,7 +83,7 @@ function SkillsSection() {
       <div className="mt-10">
         <div
           ref={containerRef}
-          className="relative h-[600px] w-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] shadow-[0_10px_40px_rgba(0,0,0,0.25)]"
+          className="relative h-[600px] w-full overflow-hidden rounded-2xl border border-[rgba(17,17,17,0.08)] bg-[rgba(255,255,255,0.45)] shadow-[var(--shadow-soft)]"
         >
           <svg className="pointer-events-none absolute inset-0 h-full w-full">
             {Object.entries(positions).map(([tech1, pos1]) =>
@@ -97,7 +97,7 @@ function SkillsSection() {
                       y1={pos1.y}
                       x2={pos2.x}
                       y2={pos2.y}
-                      stroke={highlighted ? '#7dd3fc' : 'rgba(255,255,255,0.12)'}
+                      stroke={highlighted ? '#d96b2b' : 'rgba(17,17,17,0.12)'}
                       strokeWidth={highlighted ? '1.5' : '1'}
                       opacity={highlighted ? '0.65' : '0.42'}
                     />
@@ -169,8 +169,8 @@ function TechNode({ tech, isHighlighted, onHover, delay }) {
       }}
     >
       <div
-        className={`flex h-16 w-16 items-center justify-center rounded-2xl border bg-white/[0.03] transition duration-500 ease-out ${
-          isHighlighted ? 'border-[rgba(125,211,252,0.32)] bg-[rgba(125,211,252,0.08)]' : 'border-white/10'
+        className={`flex h-16 w-16 items-center justify-center rounded-2xl border bg-[rgba(255,255,255,0.55)] transition duration-500 ease-out ${
+          isHighlighted ? 'border-[rgba(217,107,43,0.32)] bg-[rgba(239,141,84,0.12)]' : 'border-[rgba(17,17,17,0.08)]'
         }`}
       >
         <img
@@ -186,7 +186,7 @@ function TechNode({ tech, isHighlighted, onHover, delay }) {
       </div>
       <span
         className={`mt-2 text-center text-xs font-medium transition-colors duration-500 ${
-          isHighlighted ? 'text-[color:var(--color-accent-primary)]' : 'text-zinc-500'
+          isHighlighted ? 'text-[color:var(--color-accent-primary)]' : 'text-[color:var(--color-text-muted)]'
         }`}
       >
         {tech.name}

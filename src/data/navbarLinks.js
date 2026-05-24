@@ -15,8 +15,5 @@ export const navbarLinks = [
     label: 'Experience',
     href: '#experience',
   },
-  {
-    label: 'Contact',
-    href: '#contact',
-  },
+  
 ]

@@ -43,11 +43,11 @@ function AboutSection() {
   return (
     <Section
       id="about"
-      className="relative overflow-hidden bg-[color:var(--color-background)] py-20 lg:py-28"
+      className="relative overflow-hidden bg-transparent"
       containerClassName="relative z-10"
     >
-      <div className="grid gap-8 border-y border-white/[0.08] py-10 lg:grid-cols-[0.28fr_1fr] lg:gap-16 lg:py-12">
-        <FadeUp as="p" className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500">
+      <div className="grid gap-8 border-y border-[rgba(17,17,17,0.08)] py-8 lg:grid-cols-[0.28fr_1fr] lg:gap-16 lg:py-10">
+        <FadeUp as="p" className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--color-text-muted)]">
           ABOUT
         </FadeUp>
 
@@ -60,22 +60,22 @@ function AboutSection() {
         </FadeUp>
       </div>
 
-      <div className="divide-y divide-white/[0.08]">
+      <div className="divide-y divide-[rgba(17,17,17,0.08)]">
         {aboutRows.map((row, index) => (
           <FadeUp
             key={row.label}
             delay={0.08 + index * 0.04}
-            className="grid gap-5 py-12 lg:grid-cols-[0.28fr_1fr_0.22fr] lg:gap-16"
+            className="grid gap-5 py-10 lg:grid-cols-[0.28fr_1fr_0.22fr] lg:gap-16"
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--color-text-muted)]">
               {row.label}
             </p>
 
-            <p className="max-w-2xl text-lg font-normal leading-[1.7] text-zinc-200">
+            <p className="max-w-2xl text-lg font-normal leading-[1.7] text-[color:var(--color-text-primary)]">
               {row.content}
             </p>
 
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-zinc-500 lg:pt-2 lg:text-right">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--color-text-muted)] lg:pt-2 lg:text-right">
               {row.status}
             </p>
           </FadeUp>

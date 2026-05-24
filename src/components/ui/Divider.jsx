@@ -5,7 +5,7 @@ function Divider({ className = '' }) {
     <div
       aria-hidden="true"
       className={cn(
-        'h-px w-full max-w-3xl bg-gradient-to-r from-transparent via-white/15 to-transparent',
+        'h-px w-full max-w-3xl bg-gradient-to-r from-transparent via-[rgba(17,17,17,0.14)] to-transparent',
         className,
       )}
     />

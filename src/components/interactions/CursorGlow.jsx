@@ -6,8 +6,8 @@ const CursorGlow = forwardRef(function CursorGlow({ className = '', style }, ref
     <span
       ref={ref}
       className={cn(
-        'pointer-events-none fixed left-0 top-0 z-[60] hidden h-24 w-24 rounded-full opacity-0 blur-2xl transition-opacity duration-500 lg:block',
-        'bg-[radial-gradient(circle,rgba(125,211,252,0.1),rgba(125,211,252,0.035)_42%,transparent_70%)]',
+        'pointer-events-none fixed left-0 top-0 z-[60] hidden h-20 w-20 rounded-full opacity-0 blur-xl transition-opacity duration-500 lg:block',
+        'bg-[radial-gradient(circle,rgba(217,107,43,0.12),rgba(239,141,84,0.04)_42%,transparent_70%)]',
         className,
       )}
       style={style}

@@ -38,7 +38,7 @@ function Navbar() {
       className={cn(
         'fixed inset-x-0 top-0 z-50 border-b transition-all duration-500 ease-out',
         isScrolled || isOpen
-          ? 'border-white/10 bg-[rgba(11,15,20,0.72)] backdrop-blur-md'
+          ? 'border-[rgba(17,17,17,0.08)] bg-[rgba(245,242,235,0.78)] backdrop-blur-md'
           : 'border-transparent bg-transparent shadow-none',
       )}
     >
@@ -50,10 +50,13 @@ function Navbar() {
           )}
           aria-label="Primary navigation"
         >
-          <MagneticHover as={Link} to="/" className="group min-w-0" strength={0.02} max={3} onClick={closeMenu}>
+          <MagneticHover as={Link} to="/" className="group flex min-w-0 items-center gap-3" strength={0.02} max={3} onClick={closeMenu}>
+            <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-[rgba(17,17,17,0.18)] bg-[rgba(255,255,255,0.38)] text-sm font-semibold text-[color:var(--color-text-primary)] transition duration-500 group-hover:border-[rgba(217,107,43,0.32)] group-hover:text-[color:var(--color-accent-primary)]">
+              T
+            </span>
             <span
               className={cn(
-                'font-display text-sm font-semibold tracking-normal text-[color:var(--color-text-primary)] transition-all duration-500 group-hover:text-white sm:text-base',
+                'font-display text-sm font-semibold tracking-normal text-[color:var(--color-text-primary)] transition-all duration-500 group-hover:text-[color:var(--color-accent-primary)] sm:text-base',
                 isScrolled && 'sm:text-[0.95rem]',
               )}
             >
@@ -61,27 +64,34 @@ function Navbar() {
             </span>
           </MagneticHover>
 
-          <div className="hidden items-center gap-1 xl:flex">
+          <div className="hidden items-center gap-1 rounded-full border border-[rgba(17,17,17,0.08)] bg-[rgba(237,231,220,0.62)] p-1 shadow-[var(--shadow-soft)] backdrop-blur-md xl:flex">
             {navbarLinks.map((link) => (
               <MagneticHover
                 as="a"
                 key={link.href}
                 href={link.href}
-                className="group relative px-3 py-2 text-sm font-medium text-zinc-400 transition duration-500 ease-out hover:text-zinc-100"
+                className="group relative rounded-full px-3.5 py-2 text-sm font-medium text-[color:var(--color-text-secondary)] transition duration-500 ease-out hover:bg-[rgba(255,255,255,0.58)] hover:text-[color:var(--color-text-primary)]"
                 strength={0.02}
                 max={3}
               >
                 <span className="relative z-10 transition duration-500">
                   {link.label}
                 </span>
-                <span className="absolute inset-x-3 bottom-1 h-px origin-left scale-x-0 bg-[color:var(--color-accent-primary)]/60 transition duration-500 ease-out group-hover:scale-x-100" />
+                <span className="absolute inset-x-3 bottom-1 h-px origin-left scale-x-0 bg-[color:var(--color-accent-primary)] transition duration-500 ease-out group-hover:scale-x-100" />
               </MagneticHover>
             ))}
           </div>
 
+          <a
+            href="#contact"
+            className="hidden rounded-full border border-[rgba(17,17,17,0.18)] bg-[rgba(255,255,255,0.34)] px-5 py-2.5 text-sm font-medium text-[color:var(--color-text-primary)] transition duration-500 ease-out hover:-translate-y-0.5 hover:border-[rgba(217,107,43,0.28)] hover:bg-[rgba(255,255,255,0.68)] hover:text-[color:var(--color-accent-primary)] xl:inline-flex"
+          >
+            Get in touch -&gt;
+          </a>
+
           <button
             type="button"
-            className="group inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/10 bg-transparent transition duration-500 ease-out hover:bg-white/[0.04] xl:hidden"
+            className="group inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[rgba(17,17,17,0.12)] bg-[rgba(255,255,255,0.35)] transition duration-500 ease-out hover:bg-[rgba(255,255,255,0.65)] xl:hidden"
             aria-label="Toggle navigation menu"
             aria-expanded={isOpen}
             onClick={() => setIsOpen((current) => !current)}
@@ -116,16 +126,16 @@ function Navbar() {
           )}
         >
           <div className="min-h-0">
-            <div className="border-t border-white/10 py-3">
+            <div className="border-t border-[rgba(17,17,17,0.08)] py-3">
               {navbarLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  className="group flex min-h-12 items-center justify-between px-1 py-3 text-sm font-medium text-zinc-300 transition duration-500 ease-out hover:text-white"
+                  className="group flex min-h-12 items-center justify-between px-1 py-3 text-sm font-medium text-[color:var(--color-text-secondary)] transition duration-500 ease-out hover:text-[color:var(--color-text-primary)]"
                   onClick={closeMenu}
                 >
                   <span>{link.label}</span>
-                  <span className="h-px w-8 origin-left scale-x-0 bg-[color:var(--color-accent-primary)]/60 transition duration-500 group-hover:scale-x-100" />
+                  <span className="h-px w-8 origin-left scale-x-0 bg-[color:var(--color-accent-primary)] transition duration-500 group-hover:scale-x-100" />
                 </a>
               ))}
             </div>

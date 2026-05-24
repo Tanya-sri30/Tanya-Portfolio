@@ -23,7 +23,7 @@ function NotFound() {
         <div className="animate-fade-up flex flex-col items-center">
           <SectionLabel>PAGE NOT FOUND</SectionLabel>
 
-          <p className="mt-8 text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500">
+          <p className="mt-8 text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--color-text-muted)]">
             Error Code
           </p>
 
@@ -34,14 +34,14 @@ function NotFound() {
 
         <Divider className="animate-fade-up mt-8 max-w-xl [animation-delay:120ms]" />
 
-        <p className="animate-fade-up mt-8 max-w-xl text-base leading-7 text-zinc-400 [animation-delay:180ms] sm:text-lg">
+        <p className="animate-fade-up mt-8 max-w-xl text-base leading-7 text-[color:var(--color-text-secondary)] [animation-delay:180ms] sm:text-lg">
           The page you are looking for is unavailable or has moved.
         </p>
 
-        <div className="animate-fade-up mt-8 grid w-full max-w-xl grid-cols-1 gap-3 text-left text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500 [animation-delay:240ms] sm:grid-cols-3">
-          <span className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">Page: Missing</span>
-          <span className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">Route: Unknown</span>
-          <span className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">Home: Ready</span>
+        <div className="animate-fade-up mt-8 grid w-full max-w-xl grid-cols-1 gap-3 text-left text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--color-text-muted)] [animation-delay:240ms] sm:grid-cols-3">
+          <span className="rounded-2xl border border-[rgba(17,17,17,0.08)] bg-[rgba(255,255,255,0.55)] p-4">Page: Missing</span>
+          <span className="rounded-2xl border border-[rgba(17,17,17,0.08)] bg-[rgba(255,255,255,0.55)] p-4">Route: Unknown</span>
+          <span className="rounded-2xl border border-[rgba(17,17,17,0.08)] bg-[rgba(255,255,255,0.55)] p-4">Home: Ready</span>
         </div>
 
         <div className="animate-fade-up mt-10 [animation-delay:320ms]">

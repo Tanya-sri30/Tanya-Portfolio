@@ -18,13 +18,13 @@ function ExperienceSection() {
           <StaggerContainer.Item key={item.phase}>
             <FloatingPanel>
               <div className="grid gap-4 text-left md:grid-cols-[0.22fr_0.34fr_1fr] md:items-center">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--color-text-muted)]">
                   {item.phase}
                 </p>
                 <h3 className="text-xl font-semibold text-[color:var(--color-text-primary)]">
                   {item.title}
                 </h3>
-                <p className="text-sm leading-7 text-zinc-400">
+                <p className="text-sm leading-7 text-[color:var(--color-text-secondary)]">
                   {item.detail}
                 </p>
               </div>

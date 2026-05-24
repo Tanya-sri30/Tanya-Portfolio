@@ -1,6 +1,7 @@
 import FadeUp from '../components/animations/FadeUp.jsx'
 import StaggerContainer from '../components/animations/StaggerContainer.jsx'
 import Section from '../components/Section.jsx'
+import TypingLabel from '../components/TypingLabel.jsx'
 import PrimaryButton from '../components/ui/PrimaryButton.jsx'
 import SecondaryButton from '../components/ui/SecondaryButton.jsx'
 
@@ -18,8 +19,8 @@ function HeroSection() {
       </div>
 
       <div className="max-w-4xl">
-        <FadeUp as="p" className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500">
-          AI/ML Student &bull; Systems Builder
+        <FadeUp as="p" className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--color-text-muted)]">
+          <TypingLabel />
         </FadeUp>
 
         <FadeUp
@@ -33,7 +34,7 @@ function HeroSection() {
         <FadeUp
           as="p"
           delay={0.16}
-          className="mt-8 max-w-2xl text-base leading-7 text-zinc-400 sm:text-lg"
+          className="mt-8 max-w-2xl text-base leading-7 text-[color:var(--color-text-secondary)] sm:text-lg"
         >
           AI/ML student fascinated by intelligent systems, machine learning, and building technology that creates meaningful impact.
         </FadeUp>
@@ -41,7 +42,7 @@ function HeroSection() {
         <FadeUp
           as="p"
           delay={0.24}
-          className="mt-10 max-w-2xl text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500"
+          className="mt-10 max-w-2xl text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--color-text-muted)]"
         >
           Based in India &bull; Building & Learning &bull; Open to Opportunities
         </FadeUp>
