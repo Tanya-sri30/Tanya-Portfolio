@@ -76,3 +76,21 @@ export const PROJECTS = [
     github: 'https://github.com/Tanya-sri30/AeroAssessX',
   },
 ]
+
+export const experienceTimeline = [
+  {
+    phase: 'EDUCATION',
+    title: 'B.Tech CSE (AI & ML)',
+    detail: 'Building foundations in intelligent systems, machine learning, and software development through continued study and practical exploration.',
+  },
+  {
+    phase: 'PROJECTS',
+    title: 'Independent AI/ML Builder',
+    detail: 'Developing applied systems across productivity, health prediction, explainability, and data analysis with an emphasis on usable outcomes.',
+  },
+  {
+    phase: 'NEXT',
+    title: 'Open to Opportunities',
+    detail: 'Seeking internships and collaborations where curiosity, thoughtful engineering, and growing AI/ML skills can contribute to meaningful work.',
+  },
+]

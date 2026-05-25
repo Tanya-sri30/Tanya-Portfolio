@@ -2,19 +2,12 @@ import { useEffect, useRef } from 'react'
 import Container from './Container.jsx'
 import { cn } from '../utils/cn.js'
 
-const spacingStyles = {
-  compact: 'py-[72px] lg:py-[100px]',
-  default: 'py-[72px] lg:py-[110px]',
-  spacious: 'py-[72px] lg:py-[120px]',
-}
-
 function Section({
   id,
   children,
   className = '',
   containerClassName = '',
   fullScreen = false,
-  spacing = 'default',
 }) {
   const sectionRef = useRef(null)
   const shouldReveal = !fullScreen && ['about', 'projects', 'skills', 'experience', 'contact'].includes(id)
@@ -44,17 +37,17 @@ function Section({
   return (
     <section
       ref={sectionRef}
-      id={id}
       className={cn(
         fullScreen
-          ? 'flex min-h-[100svh] items-center py-24 lg:py-32'
-          : spacingStyles[spacing],
-        'scroll-mt-[90px]',
+          ? 'flex min-h-[100svh] items-center py-20 md:py-24 lg:py-28'
+          : 'py-16 md:py-20 lg:py-24',
         shouldReveal && 'scroll-reveal-section',
         className,
       )}
     >
-      <Container className={containerClassName}>{children}</Container>
+      <Container id={id} className={cn('scroll-mt-[90px]', containerClassName)}>
+        {children}
+      </Container>
     </section>
   )
 }

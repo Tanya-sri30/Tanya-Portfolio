@@ -8,7 +8,7 @@ import SectionIntro from '../components/ui/SectionIntro.jsx'
 
 function TransmissionSection() {
   return (
-    <Section id="contact" spacing="spacious">
+    <Section id="contact">
       <FloatingPanel className="mx-auto max-w-5xl">
         <SectionIntro
           eyebrow="CONTACT"

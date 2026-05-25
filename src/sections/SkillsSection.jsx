@@ -73,7 +73,7 @@ function SkillsSection() {
   }
 
   return (
-    <Section id="skills" spacing="spacious">
+    <Section id="skills">
       <SectionIntro
         eyebrow="SKILLS & TECH STACK"
         title="Technical ecosystem."

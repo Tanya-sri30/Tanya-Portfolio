@@ -20,7 +20,7 @@ const getStatusClassName = (status) => {
 
 function DeployedSystemsSection() {
   return (
-    <Section id="projects" spacing="spacious">
+    <Section id="projects">
       <SectionIntro
         eyebrow="PROJECTS"
         title="Selected systems and experiments."

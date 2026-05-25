@@ -6,7 +6,7 @@ import { capabilities } from '../data/systemModules.js'
 
 function CapabilitiesSection() {
   return (
-    <Section id="skills" spacing="spacious">
+    <Section id="skills">
       <SectionIntro
         eyebrow="CORE CAPABILITIES"
         title="Core capabilities for modern AI products."

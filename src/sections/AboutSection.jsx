@@ -46,7 +46,7 @@ function AboutSection() {
       className="relative overflow-hidden bg-transparent"
       containerClassName="relative z-10"
     >
-      <div className="grid gap-8 border-y border-[rgba(17,17,17,0.08)] py-8 lg:grid-cols-[0.28fr_1fr] lg:gap-16 lg:py-10">
+      <div className="grid gap-7 border-y border-[rgba(17,17,17,0.08)] py-7 md:py-8 lg:grid-cols-[0.28fr_1fr] lg:gap-16">
         <FadeUp as="p" className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--color-text-muted)]">
           ABOUT
         </FadeUp>
@@ -65,7 +65,7 @@ function AboutSection() {
           <FadeUp
             key={row.label}
             delay={0.08 + index * 0.04}
-            className="grid gap-5 py-10 lg:grid-cols-[0.28fr_1fr_0.22fr] lg:gap-16"
+            className="grid gap-5 py-8 md:py-9 lg:grid-cols-[0.28fr_1fr_0.22fr] lg:gap-16"
           >
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--color-text-muted)]">
               {row.label}
