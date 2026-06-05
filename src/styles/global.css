@@ -217,8 +217,13 @@ html.lenis body {
   background: var(--color-accent-primary);
 }
 
+.status-badge-blue > span {
+  background: #3f7fbd;
+}
+
 .status-badge-green > span::after,
-.status-badge-amber > span::after {
+.status-badge-amber > span::after,
+.status-badge-blue > span::after {
   content: "";
   position: absolute;
   inset: -0.22rem;
@@ -234,6 +239,10 @@ html.lenis body {
 
 .status-badge-amber > span::after {
   color: var(--color-accent-primary);
+}
+
+.status-badge-blue > span::after {
+  color: #3f7fbd;
 }
 
 .status-badge-muted > span {
