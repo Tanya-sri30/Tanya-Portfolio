@@ -7,6 +7,7 @@ const initialForm = {
   email: '',
   subject: '',
   message: '',
+  botcheck: '',
 }
 
 const emailPattern = /^[\w-.]+@([\w-]+\.)+[\w-]{2,}$/i
@@ -43,7 +44,7 @@ function ContactSection() {
     setErrors((current) => ({ ...current, [field]: undefined }))
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
 
     const nextErrors = {}
@@ -62,12 +63,41 @@ function ContactSection() {
       return
     }
 
+    if (formData.botcheck) {
+      return
+    }
+
     setStatus('sending')
-    window.setTimeout(() => {
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY,
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          subject: formData.subject.trim(),
+          message: formData.message.trim(),
+          botcheck: formData.botcheck,
+        }),
+      })
+
+      const result = await response.json()
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || 'Failed to send message.')
+      }
+
       setStatus('sent')
       setFormData(initialForm)
       setErrors({})
-    }, 750)
+    } catch {
+      setStatus('failed')
+    }
   }
 
   return (
@@ -130,6 +160,17 @@ function ContactSection() {
 
         <FadeUp delay={0.18}>
           <form className="space-y-5" onSubmit={handleSubmit} noValidate>
+            <input
+              type="text"
+              name="botcheck"
+              tabIndex="-1"
+              autoComplete="off"
+              value={formData.botcheck}
+              onChange={(event) => handleChange('botcheck', event.target.value)}
+              className="hidden"
+              aria-hidden="true"
+            />
+
             <div className="grid gap-5 sm:grid-cols-2">
               <ContactField
                 label="Name"
@@ -163,7 +204,11 @@ function ContactSection() {
 
             <div className="flex flex-col gap-4 pt-2 sm:flex-row sm:items-center sm:justify-between">
               <p className="text-sm leading-6 text-[color:var(--color-text-muted)]">
-                {status === 'sent' ? 'Message sent.' : 'All fields are required before sending.'}
+                {status === 'sent'
+                  ? 'Message sent successfully ✓'
+                  : status === 'failed'
+                    ? 'Failed to send message.'
+                    : 'All fields are required before sending.'}
               </p>
 
               <button
@@ -171,7 +216,7 @@ function ContactSection() {
                 disabled={status === 'sending'}
                 className="inline-flex min-h-12 items-center justify-center rounded-full bg-[color:var(--color-accent-primary)] px-7 py-3 text-sm font-semibold text-white shadow-[0_10px_30px_rgba(217,107,43,0.16)] transition duration-500 ease-out hover:-translate-y-0.5 hover:bg-[color:var(--color-accent-soft)] disabled:cursor-not-allowed disabled:opacity-70"
               >
-                {status === 'sending' ? 'SENDING...' : 'SEND MESSAGE'}
+                {status === 'sending' ? 'Sending...' : 'SEND MESSAGE'}
               </button>
             </div>
           </form>
