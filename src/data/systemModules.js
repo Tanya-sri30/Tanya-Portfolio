@@ -80,7 +80,7 @@ export const PROJECTS = [
 export const experienceTimeline = [
   {
     period: 'Jun 2026 – Aug 2026',
-    role: 'Product Intern',
+    role: 'Summer Intern',
     company: 'Uno Minda',
     status: 'CURRENT',
     description:
@@ -100,7 +100,7 @@ export const experienceTimeline = [
     company: 'Infosys Springboard Virtual Internship 7.0',
     status: 'ACTIVE',
     description:
-      'Completed industry-oriented training focused on artificial intelligence, machine learning concepts, data analysis, and practical problem-solving through guided projects and learning modules.',
+      'Industry-oriented training focused on artificial intelligence, machine learning concepts, data analysis, and practical problem-solving through guided projects and learning modules.',
   },
   {
   period: "May 2026 – Present",
