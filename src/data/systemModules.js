@@ -80,11 +80,11 @@ export const PROJECTS = [
 export const experienceTimeline = [
   {
     period: 'Jun 2026 – Aug 2026',
-    role: 'Summer Intern',
+    role: 'AI & Analytics Intern',
     company: 'Uno Minda',
     status: 'CURRENT',
     description:
-      'Working with enterprise systems and product workflows in an industrial environment while gaining practical exposure to product development, engineering operations, collaboration, and real-world business processes.',
+      'Working with the AI and Analytics team to develop and implement machine learning models, data analysis pipelines, and AI-driven solutions for automotive applications, contributing to projects that enhance vehicle performance, predictive maintenance, and intelligent systems integration.',
   },
   {
     period: 'May 2026 – Present',

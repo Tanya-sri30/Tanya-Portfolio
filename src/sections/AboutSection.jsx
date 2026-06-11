@@ -56,7 +56,7 @@ function AboutSection() {
           delay={0.06}
           className="max-w-3xl text-3xl font-medium leading-tight tracking-tight text-[color:var(--color-text-primary)] sm:text-4xl"
         >
-          A few things about me, currently.
+        
         </FadeUp>
       </div>
 
